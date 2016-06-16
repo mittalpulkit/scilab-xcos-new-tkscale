@@ -22,11 +22,7 @@
 
 function block=new_tkscaleblk(block,flag)
 
-    //
     // Get the current called  xcos block during simulation using curblock() utility function of Scilab
-    //
-    // @author Pulkit Mittal	<mittal.pulkit08@gmail.com>
-    //
     blk=curblock();	
     
     if flag == 1 then
@@ -48,14 +44,10 @@ function block=new_tkscaleblk(block,flag)
     elseif flag == 4 then
         // Initialization
 	
-
 	// Use the variable labelling to set the default label of Tk Source window
 	// Also typecast the blk (block no) obtained into the string object 
 	// Variable label_new is used to get the default sentinel value present in Name of TKSCALE block
-	//
-	// @author Pulkit Mittal	<mittal.pulkit08@gmail.com>
-        //
-	//
+
 	labelling = "Tk Source: "+string(blk);
 	label_new=string(block.label);
 			
@@ -66,10 +58,7 @@ function block=new_tkscaleblk(block,flag)
         end
 
 	// Check if user has given some name to Tk Souce and change it 
-	//
-	// @author Pulkit Mittal	<mittal.pulkit08@gmail.com>
-        //
-	//
+	
 	answer = strcmp(label_new,"NIL");	
 	disp("answer of comparison= "+string(answer));	
 	if answer ~= 0 then
