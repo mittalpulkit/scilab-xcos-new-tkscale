@@ -35,10 +35,6 @@ function [x,y,typ]=NEW_TKSCALE(job,arg1,arg2)
 	
 	// Add a label 'Name of TKSCALE' of type 'str' and set its dimension to 1
 	// This adds a new field where the title of Tk Source can be changed
-	// 
-	//  @autor Pulkit Mittal		<mittal.pulkit08@gmail.com>
-	// 
-	// 
         [ok,a,b,f,name_tk,exprs]=scicos_getvalue("Set scale block parameters",..
         ["Min value";"Max value";"Normalization";"Name of TKSCALE"],..
         list("vec",1,"vec",1,"vec",1,"str",1),exprs)
@@ -51,10 +47,7 @@ function [x,y,typ]=NEW_TKSCALE(job,arg1,arg2)
 		
 	    // Use a scilab object of type model and include the field label which can be used to identify a 
             // block in order to access or modify its parameters
-  	    //
-	    // @author Pulkit Mittal	<mittal.pulkit08@gmail.com>
-	    //
-	    // 
+  	    
 	    model.label=string(name_tk);
             x.graphics=graphics;
             x.model=model
@@ -70,16 +63,10 @@ function [x,y,typ]=NEW_TKSCALE(job,arg1,arg2)
         model.evtin=1
         model.rpar=[a;b;f]
 	 // Set the label field of model object equal to the name given by user
- 	 //
-	 // @author Pulkit Mittal	<mittal.pulkit08@gmail.com>
-	 //
-	 // 
 	model.label=string(name_tk)
         model.blocktype="d"
         model.dep_ut=[%f %f]
-	 //
 	 // exprs a vector of strings including formal expressions
-	 //
         exprs=[sci2exp(a);sci2exp(b);sci2exp(f);string(name_tk)]
         gr_i=[]
         x=standard_define([3 2],model,exprs,gr_i)
